@@ -27,27 +27,44 @@ void display(){
     }
 }
 void displayrev(){
-   helper(head);
+   head=helper(head);
     
 }
-void helper(Node temp){
-  if(temp==null){
-    return;
+Node helper(Node temp){
+  if(temp==null ||temp.next==null){
+    return temp;
   }
-  helper(temp.next);
-  System.out.println(temp.data);
+ Node newHead=helper(temp.next);
+ temp.next.next=temp;
+ temp.next=null;
+ return newHead;
+  
+}
+void insertNode(int pos){
+  head=helper2(pos,head);
+}
+Node helper2(int pos,Node temp){
+    if(pos==0){
+        Node newnode=new Node(99);
+        newnode.next=temp;
+        return newnode;
+    }
+    Node check=helper2(pos-1,temp.next);
+     temp.next=check;
+     return temp;
 }
 }
+
 public class LingLIstREvers {
     public static void main(String[] args) {
         SLinkedList sl=new SLinkedList();
         sl.add(1);
         sl.add(10);
         sl.add(20);
+        sl.insertNode(2);
         sl.add(50);
-        sl.display();
-        sl.displayrev();
-        
+         sl.display();
     }
 }
+
 
