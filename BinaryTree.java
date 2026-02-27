@@ -46,9 +46,7 @@ class Tree{
         helper(temp.left);
         System.out.println(temp.data);
         helper(temp.right);
-        
-        
-        
+              
         
     }
 }
