@@ -46,13 +46,28 @@ public class SL {
         return temp;
     
     }
+    void reverseDisplay(Node temp){
+        if(temp==null){
+            return;
+        }
+        reverseDisplay(temp.next);
+        System.out.println(temp.data);
+    }
+    Node reverse(Node temp){
+       if(temp.next==null){
+        return temp;
+       }
+       return reverse(temp.next).next=temp;
+    }
     public static void main(String[] args) {
         SL ll=new SL();
         ll.addNode(10);
         ll.addNode(20);
         ll.addNode(30);
-        ll.rec(ll.head, 99, 2);
-        ll.recRev(ll.head, 100, 4);
+        // ll.rec(ll.head, 99, 2);
+        // ll.recRev(ll.head, 100, 4);
+        // ll.reverseDisplay(ll.head);
+        ll.reverse(ll.head);
         ll.display();
     }
 }
