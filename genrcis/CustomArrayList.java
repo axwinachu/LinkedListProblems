@@ -1,4 +1,8 @@
 package genrcis;
+
+import java.util.ArrayList;
+import java.util.List;
+
 class ArrayL<T>{
     private Object[] arr;
     private static int length=10;
@@ -32,6 +36,9 @@ class ArrayL<T>{
 
 }
 public class CustomArrayList {
+    static void print(List<?> data){
+       System.out.println(data);
+    }
     public static void main(String[] args) {
         ArrayL<Integer> arr=new ArrayL<>();
         arr.add(10);
@@ -42,6 +49,11 @@ public class CustomArrayList {
         for(int i=0;i<arr.size();i++){
             System.out.println(arr.get(i));
         }
+        List<String> str=List.of("aswin","abi","jafer");
+        List<Integer> num=List.of(1,2,3,4);
+        print(num);
+        print(str);
+       
 
     } 
 }
